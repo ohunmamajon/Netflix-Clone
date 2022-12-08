@@ -19,6 +19,7 @@
 		CCC01FF22942557300AC258F /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC01FF12942557300AC258F /* UpcomingViewController.swift */; };
 		CCC01FF4294255FA00AC258F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC01FF3294255FA00AC258F /* SearchViewController.swift */; };
 		CCC01FF62942569F00AC258F /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC01FF52942569F00AC258F /* DownloadsViewController.swift */; };
+		CCC01FFD29426C8D00AC258F /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC01FFC29426C8D00AC258F /* CollectionViewTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		CCC01FF12942557300AC258F /* UpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
 		CCC01FF3294255FA00AC258F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CCC01FF52942569F00AC258F /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
+		CCC01FFC29426C8D00AC258F /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,11 @@
 				CCC01FBE29424F0000AC258F /* AppDelegate.swift */,
 				CCC01FC029424F0000AC258F /* SceneDelegate.swift */,
 				CCC01FC229424F0000AC258F /* MainTabBarViewController.swift */,
+				CCC01FFB29426BCD00AC258F /* Managers */,
+				CCC01FFA29426BBF00AC258F /* Resources */,
+				CCC01FF929426B1000AC258F /* Models */,
+				CCC01FF729426ABA00AC258F /* Views */,
+				CCC01FF829426AF900AC258F /* ViewModels */,
 				CCC01FEE294254AA00AC258F /* Controllers */,
 				CCC01FC729424F0400AC258F /* Assets.xcassets */,
 				CCC01FC929424F0400AC258F /* LaunchScreen.storyboard */,
@@ -142,6 +149,42 @@
 				CCC01FEF294254F900AC258F /* HomeViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CCC01FF729426ABA00AC258F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CCC01FFC29426C8D00AC258F /* CollectionViewTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CCC01FF829426AF900AC258F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CCC01FF929426B1000AC258F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CCC01FFA29426BBF00AC258F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CCC01FFB29426BCD00AC258F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +319,7 @@
 			files = (
 				CCC01FF4294255FA00AC258F /* SearchViewController.swift in Sources */,
 				CCC01FF0294254F900AC258F /* HomeViewController.swift in Sources */,
+				CCC01FFD29426C8D00AC258F /* CollectionViewTableViewCell.swift in Sources */,
 				CCC01FF62942569F00AC258F /* DownloadsViewController.swift in Sources */,
 				CCC01FC329424F0000AC258F /* MainTabBarViewController.swift in Sources */,
 				CCC01FBF29424F0000AC258F /* AppDelegate.swift in Sources */,
