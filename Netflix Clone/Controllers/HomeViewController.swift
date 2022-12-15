@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let sectionTitles: [String] = ["Trendind Movies","Popular", "Trending TV Shows", "Upcoming", "Top Rated"]
+    let sectionTitles: [String] = ["Trendind Movies","Trending TV Shows","Popular", "Upcoming", "Top Rated"]
     
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
         configureNavBar()
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
-        getTrendingMovies()
+        fetchData()
     }
     
     private func configureNavBar(){
@@ -46,14 +46,26 @@ class HomeViewController: UIViewController {
         homeFeedTable.frame = view.bounds
     }
 
-    private func getTrendingMovies(){
-        APICaller.shared.getTrendingMovies {
-            results in switch results {
-            case .success(let movies):
-                print (movies)
-            case .failure(let error):
-                print(error)
-            }
+    private func fetchData(){
+//        APICaller.shared.getTrendingMovies {
+//            results in switch results {
+//            case .success(let movies):
+//                print (movies)
+//            case .failure(let error):
+//                print(error)
+//            }
+//
+//        }
+//        APICaller.shared.getTrendingTVs { results in
+//
+//        }
+//        APICaller.shared.getUpcomingMovies { _ in
+//
+//        }
+//        APICaller.shared.getPopularMovies { _ in
+//
+//        }
+        APICaller.shared.getTopRatedMovies { _ in
             
         }
     }
@@ -88,6 +100,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .white
+        header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
         
     }
     
