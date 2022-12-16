@@ -73,7 +73,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             return UITableViewCell()
         }
         
-        switch indexPath.section{
+        switch indexPath.section
+        {
         case Sections.TrendingMovies.rawValue:
             APICaller.shared.getTrendingMovies { result in
                 switch result {
