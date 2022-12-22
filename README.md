@@ -7,3 +7,5 @@
    ## - Core Data & Persistence
    ## -  WebView
    ## - API call  & models 
+   ## - View Models
+   ## - Notification Center
