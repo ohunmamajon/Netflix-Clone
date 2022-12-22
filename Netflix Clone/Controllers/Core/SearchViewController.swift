@@ -7,8 +7,9 @@
 
 import UIKit
 
+
 class SearchViewController: UIViewController {
-    
+   
     private var titles:[Title] = [Title]()
     
     private let discoverTable: UITableView = {
@@ -31,6 +32,7 @@ class SearchViewController: UIViewController {
         title = "Search"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.tintColor = .white
         view.addSubview(discoverTable)
         discoverTable.delegate = self
         discoverTable.dataSource = self
@@ -78,15 +80,35 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         140
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let title = titles[indexPath.row]
+        guard let titlename = title.original_title ?? title.original_name else {return}
+        APICaller.shared.getMovie(with: titlename) { [weak self] result in
+            switch result{
+                
+            case .success(let videElement):
+                DispatchQueue.main.async {
+                    let vc = TitlePreviewViewController()
+                    vc.configure(with: TitlePreviewViewModel(title: titlename, youtubeVide: videElement, titleOverView: title.overview ?? ""))
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+               
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
-extension SearchViewController: UISearchResultsUpdating {
+extension SearchViewController: UISearchResultsUpdating, SearchResultsViewControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         
         guard let query = searchBar.text, !query.trimmingCharacters(in: .whitespaces).isEmpty,
                 query.trimmingCharacters(in: .whitespaces).count >= 3,
                 let resultsController = searchController.searchResultsController as? SearchResultsViewController else {return}
-        
+        resultsController.delegate = self
         APICaller.shared.search(with: query){ result in
             DispatchQueue.main.async {
                 switch result {
@@ -99,5 +121,13 @@ extension SearchViewController: UISearchResultsUpdating {
             }
         }
         
+    }
+    func searchResultsViewControllerDidTapItem(_ viewModel: TitlePreviewViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            let vc = TitlePreviewViewController()
+            vc.configure(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+       
     }
 }
