@@ -3,7 +3,7 @@
 #####  Demonstrated:
    ## - Tab Bars and Table Views
    ## - Collection View 
-   ## - MVVM model
+   ## - MVVM pattern
    ## - Core Data & Persistence
    ## -  WebView
    ## - API call  & models 
